@@ -1,18 +1,17 @@
-TA.init();
-
+var TA = window.TA;
 var ans = null;
 var triviaState = false;
-TA.on('twitch.chat', function(data){
+TA.twitch.chat.on('twitch.chat', function(data){
   if (data.message == '!trivia' && triviaState){
     $.get('http://jservice.io/api/random', function(trivia){
-      TA.chat(trivia[0].question);
+      TA.twitch.chat.say(trivia[0].question);
       ans = trivia[0].answer;
       triviaState = true;
     });
   }
 
   if (data.message == ans){
-    TA.chat(data.user + " has answered correctly!");
+    TA.twitch.chat.say(data.user + " has answered correctly!");
     triviaState = false;
   }
 });
