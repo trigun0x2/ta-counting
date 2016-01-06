@@ -2,6 +2,7 @@ var TA = window.TA;
 var ans = null;
 var triviaState = false;
 TA.twitch.chat.on('say', function(data){
+  console.log(data.message);
   if (data.message == '!trivia' && triviaState){
     $.get('http://jservice.io/api/random', function(trivia){
       TA.twitch.chat.say(trivia[0].question);
