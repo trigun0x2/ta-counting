@@ -13,7 +13,7 @@ TA.twitch.chat.on('say', function(data){
   }
 
   if (data.message == ans){
-    TA.twitch.chat.say(data.user + " has answered correctly!");
+    TA.twitch.chat.say(data.from + " has answered correctly!");
     triviaState = false;
   }
 });
