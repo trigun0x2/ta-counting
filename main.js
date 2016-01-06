@@ -7,6 +7,7 @@ TA.twitch.chat.on('say', function(data){
     $.get('http://jservice.io/api/random', function(trivia){
       TA.twitch.chat.say(trivia[0].question);
       ans = trivia[0].answer;
+      console.warn(ans);
       triviaState = true;
     });
   }
