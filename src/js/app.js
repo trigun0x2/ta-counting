@@ -8,7 +8,6 @@ class TwitchTrivia {
     let triviaState = false;
 
     TA.twitch.chat.on('say', (data) => {
-      console.log(data);
       if (data.message == '!trivia' && !triviaState){
         $.get(triviaAPI, (trivia) => {
           let question = trivia[0].question;
